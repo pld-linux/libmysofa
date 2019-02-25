@@ -1,0 +1,11 @@
+--- libmysofa-0.6/src/CMakeLists.txt.orig	2017-07-11 13:36:33.000000000 +0200
++++ libmysofa-0.6/src/CMakeLists.txt	2019-02-25 20:57:05.602899695 +0100
+@@ -62,7 +62,7 @@
+   GENERATE_EXPORT_HEADER(mysofa-shared BASE_NAME mysofa EXPORT_FILE_NAME ${CMAKE_SOURCE_DIR}/src/hrtf/mysofa_export.h)
+   install(TARGETS mysofa-shared 
+     RUNTIME DESTINATION bin
+-    LIBRARY DESTINATION lib)
++    LIBRARY DESTINATION lib${LIB_SUFFIX})
+ else()
+   GENERATE_EXPORT_HEADER(mysofa-static BASE_NAME mysofa EXPORT_FILE_NAME ${CMAKE_SOURCE_DIR}/src/hrtf/mysofa_export.h)
+ endif()
