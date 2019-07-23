@@ -2,7 +2,7 @@ Summary:	Library to read AES SOFA files
 Summary(pl.UTF-8):	Biblioteka do odczytu plików AES SOFA
 Name:		libmysofa
 Version:	0.7
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries
 #Source0Download: https://github.com/hoene/libmysofa/releases
