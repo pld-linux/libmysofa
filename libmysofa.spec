@@ -1,14 +1,16 @@
+%define		snap	20190516
+%define		githash	3dba53f9c14795b109577519a0df2e25e15fcd6a
+%define		rel	1
 Summary:	Library to read AES SOFA files
 Summary(pl.UTF-8):	Biblioteka do odczytu plików AES SOFA
 Name:		libmysofa
 Version:	0.7
-Release:	2
+Release:	2.%{snap}.%{rel}
 License:	BSD
 Group:		Libraries
 #Source0Download: https://github.com/hoene/libmysofa/releases
-Source0:	https://github.com/hoene/libmysofa/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	2711bb53924cd086b625e9aab84d195f
-Patch0:		%{name}-pc.patch
+Source0:	https://github.com/hoene/libmysofa/archive/%{githash}/%{name}-%{snap}.tar.gz
+# Source0-md5:	71df8b1badcb2369db1ab1ef7244fe49
 URL:		https://github.com/hoene/libmysofa
 BuildRequires:	CUnit
 BuildRequires:	cmake >= 2.8
@@ -50,8 +52,7 @@ Static libmysofa library.
 Statyczna biblioteka libmysofa.
 
 %prep
-%setup -q
-%patch0 -p1
+%setup -q -n %{name}-%{githash}
 
 %build
 install -d build
