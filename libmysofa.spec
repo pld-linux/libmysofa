@@ -54,7 +54,8 @@ Statyczna biblioteka libmysofa.
 %build
 install -d build
 cd build
-%cmake ..
+%cmake .. \
+	-DCODE_COVERAGE:BOOL=OFF
 
 %{__make}
 
