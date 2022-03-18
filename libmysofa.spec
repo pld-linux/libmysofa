@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	tests		# build tests
+
 Summary:	Library to read AES SOFA files
 Summary(pl.UTF-8):	Biblioteka do odczytu plików AES SOFA
 Name:		libmysofa
@@ -9,8 +13,9 @@ Group:		Libraries
 Source0:	https://github.com/hoene/libmysofa/archive/v%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	706810632cc8207bde9fbfd4b7ec4e4b
 URL:		https://github.com/hoene/libmysofa
-BuildRequires:	CUnit
+%{?with_tests:BuildRequires:	CUnit}
 BuildRequires:	cmake >= 2.8.12
+BuildRequires:	rpmbuild(macros) >= 1.742
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -56,6 +61,7 @@ Statyczna biblioteka libmysofa.
 install -d build
 cd build
 %cmake .. \
+	%{cmake_on_off tests BUILD_TESTS} \
 	-DCODE_COVERAGE:BOOL=OFF
 
 %{__make}
@@ -75,7 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc LICENSE README.md
-%attr(755,root,root) %{_bindir}/mysofa2json
+%{?with_tests:%attr(755,root,root) %{_bindir}/mysofa2json}
 %attr(755,root,root) %{_libdir}/libmysofa.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libmysofa.so.1
 %{_datadir}/libmysofa
