@@ -1,6 +1,7 @@
 #
 # Conditional build:
 %bcond_without	tests		# build tests
+%bcond_without	static_libs	# static library
 
 Summary:	Library to read AES SOFA files
 Summary(pl.UTF-8):	Biblioteka do odczytu plików AES SOFA
@@ -62,6 +63,7 @@ Statyczna biblioteka libmysofa.
 install -d build
 cd build
 %cmake .. \
+	-DBUILD_STATIC_LIBS=%{__ON_OFF static_libs} \
 	-DBUILD_TESTS=%{__ON_OFF tests} \
 	-DCODE_COVERAGE:BOOL=OFF
 
@@ -97,6 +99,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/libmysofa.pc
 %{_libdir}/cmake/mysofa
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libmysofa.a
+%endif
