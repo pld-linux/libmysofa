@@ -16,7 +16,7 @@ URL:		https://github.com/hoene/libmysofa
 %{?with_tests:BuildRequires:	CUnit}
 BuildRequires:	cmake >= 3.5
 %{?with_tests:BuildRequires:	pkgconfig}
-BuildRequires:	rpmbuild(macros) >= 1.742
+BuildRequires:	rpmbuild(macros) >= 2.047
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
