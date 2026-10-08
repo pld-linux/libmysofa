@@ -6,13 +6,13 @@
 Summary:	Library to read AES SOFA files
 Summary(pl.UTF-8):	Biblioteka do odczytu plików AES SOFA
 Name:		libmysofa
-Version:	1.3.4
+Version:	1.3.5
 Release:	1
 License:	BSD
 Group:		Libraries
 #Source0Download: https://github.com/hoene/libmysofa/releases
 Source0:	https://github.com/hoene/libmysofa/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	8ce0f37511235967bcccd3fb7dbb6bf9
+# Source0-md5:	62ba40d346513052547a63d46daafcf6
 URL:		https://github.com/hoene/libmysofa
 %{?with_tests:BuildRequires:	CUnit}
 BuildRequires:	cmake >= 3.5
